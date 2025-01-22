@@ -38,7 +38,7 @@ export default {
   width: 25em;
 
   z-index: 100;
-  border: 2px solid white;
+  border-right: 2px dotted #ffffff55;
   border-radius: 2em;
   transition: 0.3s;
 }

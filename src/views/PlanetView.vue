@@ -12,6 +12,7 @@ export default {
     return {
       type: String,
       data: Array,
+      favorite: [],
     }
   },
   mounted() {
@@ -42,24 +43,34 @@ export default {
         }
       }
     },
+    handleClick() {
+      updateCart(newCartItems) {
+        this.cartItems = newCartItems;
+        localStorage.setItem('cart', JSON.stringify(this.cartItems));
+      }
+    }
+    },
   },
 }
 </script>
 
 <template>
   <main>
-    <LogoComp />
-    <FooterComp />
-    <RocketComp />
-    <VerticalNavigation />
-    <GeneralPlanetInfo />
-    <img class="img_bg_planet" :src="computedImgSrc" :alt="data.name" />
-    <div class="outer_container">
-      <div class="sections">
-        <h1>{{ this.data.name }}</h1>
-        <SectionComp :data="{ title: 'About', text: this.data.description_1 }" />
-        <SectionComp :data="{ title: '', text: this.data.description_2 }" />
-        <SectionComp :data="{ title: 'Detailed description', text: this.data.text }" />
+    <div class="main_window">
+      <LogoComp />
+      <FooterComp />
+      <VerticalNavigation />
+      <GeneralPlanetInfo />]
+
+      <img class="img_bg_planet" :src="computedImgSrc" :alt="data.name" />
+      <div class="outer_container">
+        <div class="sections">
+          <img class="fav" src="/img/ui/fav.png" @click="handleClick" />
+          <h1>{{ this.data.name }}</h1>
+          <SectionComp :data="{ title: 'About', text: this.data.description_1 }" />
+          <SectionComp :data="{ title: '', text: this.data.description_2 }" />
+          <SectionComp :data="{ title: 'Detailed description', text: this.data.text }" />
+        </div>
       </div>
     </div>
   </main>
@@ -68,7 +79,7 @@ export default {
 <style scoped>
 h1 {
   float: left;
-  width: 50vw;
+  width: 30vw;
   color: white;
   font-size: 90px;
 }
@@ -80,6 +91,18 @@ h1 {
   margin-top: 10em;
   margin-bottom: 30em;
   width: 45vw;
+}
+
+.fav {
+  position: relative;
+  width: 3em;
+  float: left;
+  margin-top: 4em;
+}
+
+.fav:hover {
+  background-color: #ffffff55;
+  transition: 0.5s;
 }
 
 .img_bg_planet {

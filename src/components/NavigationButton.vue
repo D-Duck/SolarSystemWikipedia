@@ -72,6 +72,7 @@ p {
   text-align: right;
   padding-right: 10px;
   float: right;
+  text-decoration: underline;
 }
 
 a:hover,

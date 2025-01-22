@@ -24,7 +24,8 @@ export default {
   height: 5em;
 
   margin: 1em;
-  border: solid 2px white;
+  border-top: solid 2px #ffffff55;
+  border-bottom: solid 2px #ffffff55;
   border-radius: 3em;
 
   z-index: 100;
