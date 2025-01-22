@@ -14,12 +14,15 @@ export default {
 
 <template>
   <div class="fav_icon">
-    <img :src="computedImgSrc" alt="planet" />
+    <a :href="'/' + this.name">
+      <img :src="computedImgSrc" alt="planet" />
+    </a>
   </div>
 </template>
 
 <style scoped>
-#fav_drawer {
-  width: 4em;
+img {
+  height: 3em;
+  float: left;
 }
 </style>

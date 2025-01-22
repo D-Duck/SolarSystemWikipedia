@@ -47,6 +47,7 @@ export default {
     },
     handleFavorite() {
       this.favorite_planets = JSON.parse(localStorage.getItem('favorite_planets'))
+
       if (this.favorite_planets.find((item) => item === this.data.name)) {
         this.favorite_planets.splice(this.favorite_planets.indexOf(this.data.name), 1)
       } else {
@@ -54,6 +55,7 @@ export default {
       }
 
       localStorage.setItem('favorite_planets', JSON.stringify(this.favorite_planets))
+      this.$refs.fav_comp.updateFavorites()
     },
   },
 }
@@ -64,7 +66,7 @@ export default {
     <div class="main_window">
       <LogoComp />
       <FooterComp />
-      <FavoriteDrawer />
+      <FavoriteDrawer ref="fav_comp" />
       <VerticalNavigation />
       <GeneralPlanetInfo />
       <img class="img_bg_planet" :src="computedImgSrc" :alt="data.name" />

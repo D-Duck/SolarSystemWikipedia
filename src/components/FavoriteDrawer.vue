@@ -1,25 +1,45 @@
 <script>
 import FavoritePlanet from './FavoritePlanet.vue'
+import { createApp } from 'vue'
 
 export default {
   name: 'FavoriteDrawer',
   methods: {
     updateFavorites() {
       const container = document.getElementById('fav_drawer')
+      const favoritePlanets = JSON.parse(localStorage.getItem('favorite_planets')) || []
 
-      for (var i = 1; i < container.children.length; i++) {
-        container.removeChild(container.children[0])
+      console.log(container.children.length)
+
+      while (container.firstChild) {
+        container.removeChild(container.firstChild)
       }
 
-      for (var planet in localStorage.getItem('favorite_planets')) {
-        const ChildConstructor = Vue.extends(FavoritePlanet)
-        const instance = new ChildConstructor({
-          name: planet,
-        })
-        instance.$mount()
-        container.appendChild(instance.$el)
-      }
+      console.log(container.children.length)
+
+      // Your code to add new children here
+      favoritePlanets.forEach((planet) => {
+        const app = createApp(FavoritePlanet, { name: planet })
+        const div = document.createElement('div')
+        app.mount(div)
+        container.appendChild(div)
+      })
+
+      // console.log(container.chil)
+      // console.log(container.children.length)
+
+      // for (var ii = 0; ii < favoritePlanets.length; ii++) {
+      //   // console.log(favoritePlanets[ii])
+      //   const app = createApp(FavoritePlanet, { name: favoritePlanets[ii] })
+      //   const div = document.createElement('div')
+      //   app.mount(div)
+      //   container.appendChild(div)
+      // }
+      // console.log('--')
     },
+  },
+  mounted() {
+    this.updateFavorites()
   },
 }
 </script>
@@ -30,13 +50,14 @@ export default {
 
 <style scoped>
 #fav_drawer {
+  z-index: 1;
   position: fixed;
-  bottom: -3em;
-  left: -3em;
-  padding: 4em;
+  display: flex;
+  bottom: 2em;
+  left: 2em;
+  padding: 1em;
+  width: fit-content;
   background-color: black;
-  width: 25em;
-  height: 3em;
   border: 2px, solid, #ffffff55;
   border-radius: 3em;
 }
