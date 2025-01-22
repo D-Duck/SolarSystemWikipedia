@@ -4,6 +4,8 @@ import VerticalNavigation from '../components/VerticalNavigation.vue'
 import LogoComp from '../components/LogoComp.vue'
 import GeneralPlanetInfo from '@/components/GeneralPlanetInfo.vue'
 import SectionComp from '@/components/SectionComp.vue'
+import FooterComp from '@/components/FooterComp.vue'
+import RocketComp from '@/components/RocketComp.vue'
 
 export default {
   name: 'PlanetView',
@@ -17,6 +19,8 @@ export default {
     this.setData()
   },
   components: {
+    RocketComp,
+    FooterComp,
     SectionComp,
     GeneralPlanetInfo,
     VerticalNavigation,
@@ -47,11 +51,13 @@ export default {
 <template>
   <main>
     <LogoComp />
+    <FooterComp />
+    <RocketComp />
     <VerticalNavigation />
     <GeneralPlanetInfo />
-    <img id="img_bg_planet" :src="computedImgSrc" />
-    <div id="outer_container">
-      <div id="sections">
+    <img class="img_bg_planet" :src="computedImgSrc" :alt="data.name" />
+    <div class="outer_container">
+      <div class="sections">
         <h1>{{ this.data.name }}</h1>
         <SectionComp :data="{ title: 'About', text: this.data.description_1 }" />
         <SectionComp :data="{ title: '', text: this.data.description_2 }" />
@@ -64,16 +70,21 @@ export default {
 <style scoped>
 h1 {
   float: left;
-  width: 40vw;
+  width: 50vw;
   color: white;
   font-size: 90px;
 }
 
-#outer_container {
+.outer_container {
+  position: absolute;
+  top: 0;
+  left: 30em;
   margin-top: 10em;
+  margin-bottom: 30em;
+  width: 45vw;
 }
 
-#img_bg_planet {
+.img_bg_planet {
   user-select: none;
   position: absolute;
   top: -40vh;

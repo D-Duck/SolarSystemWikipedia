@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div id="navigation">
+  <div class="navigation">
     <NavigationButton data="Mercury" />
     <NavigationButton data="Venus" />
     <NavigationButton data="Earth" />
@@ -23,7 +23,8 @@ export default {
 </template>
 
 <style scoped>
-#navigation {
+.navigation {
+  background-color: black;
   padding: 0.8em;
   padding-bottom: 2.5em;
   padding-right: 0;
@@ -42,7 +43,7 @@ export default {
   transition: 0.3s;
 }
 
-#navigation:hover {
+.navigation:hover {
   left: -6em;
   transition: 0.3s;
 }

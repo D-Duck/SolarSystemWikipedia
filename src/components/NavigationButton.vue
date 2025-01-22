@@ -28,7 +28,7 @@ export default {
         if (planet.name === this.data) {
           this.text = planet.name
           this.url = '/' + planet.name
-          this.img = 'img/objects/' + planet.name + '.jpg'
+          this.img = 'img/objects_low/' + planet.name + '.jpg'
         }
       }
     },
@@ -38,15 +38,15 @@ export default {
 
 <template>
   <a :href="url">
-    <div id="button">
+    <div class="button">
       <p>{{ text }}</p>
-      <img :src="img" />
+      <img :src="img" :alt="this.text" />
     </div>
   </a>
 </template>
 
 <style scoped>
-#button {
+.button {
   float: right;
   justify-content: center;
   align-items: center;

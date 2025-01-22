@@ -1,18 +1,18 @@
-<template>
-  <div id="logo">
-    <a href="/">
-      <p>-Solar-</p>
-      <img src="/img/objects/Sun.jpg" />
-      <p>-Wiki-</p>
-    </a>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'LogoComp',
 }
 </script>
+
+<template>
+  <div id="logo">
+    <a href="/">
+      <p>-Solar-</p>
+      <img src="/img/objects_low/Sun.jpg" alt="SunLogo" />
+      <p>-Wiki-</p>
+    </a>
+  </div>
+</template>
 
 <style scoped>
 #logo {
@@ -30,6 +30,7 @@ export default {
   z-index: 100;
   display: flex;
   align-items: center;
+  background-color: black;
 }
 
 img {
