@@ -5,6 +5,7 @@ import LogoComp from '../components/LogoComp.vue'
 import GeneralPlanetInfo from '@/components/GeneralPlanetInfo.vue'
 import SectionComp from '@/components/SectionComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
+import FavoriteDrawer from '@/components/FavoriteDrawer.vue'
 
 export default {
   name: 'PlanetView',
@@ -12,13 +13,14 @@ export default {
     return {
       type: String,
       data: Array,
-      favorite: [],
+      favorite_planets: [],
     }
   },
   mounted() {
     this.setData()
   },
   components: {
+    FavoriteDrawer,
     FooterComp,
     SectionComp,
     GeneralPlanetInfo,
@@ -43,12 +45,15 @@ export default {
         }
       }
     },
-    handleClick() {
-      updateCart(newCartItems) {
-        this.cartItems = newCartItems;
-        localStorage.setItem('cart', JSON.stringify(this.cartItems));
+    handleFavorite() {
+      this.favorite_planets = JSON.parse(localStorage.getItem('favorite_planets'))
+      if (this.favorite_planets.find((item) => item === this.data.name)) {
+        this.favorite_planets.splice(this.favorite_planets.indexOf(this.data.name), 1)
+      } else {
+        this.favorite_planets.push(this.data.name)
       }
-    }
+
+      localStorage.setItem('favorite_planets', JSON.stringify(this.favorite_planets))
     },
   },
 }
@@ -59,13 +64,13 @@ export default {
     <div class="main_window">
       <LogoComp />
       <FooterComp />
+      <FavoriteDrawer />
       <VerticalNavigation />
-      <GeneralPlanetInfo />]
-
+      <GeneralPlanetInfo />
       <img class="img_bg_planet" :src="computedImgSrc" :alt="data.name" />
       <div class="outer_container">
         <div class="sections">
-          <img class="fav" src="/img/ui/fav.png" @click="handleClick" />
+          <img class="fav" src="/img/ui/fav.png" @click="handleFavorite" />
           <h1>{{ this.data.name }}</h1>
           <SectionComp :data="{ title: 'About', text: this.data.description_1 }" />
           <SectionComp :data="{ title: '', text: this.data.description_2 }" />
