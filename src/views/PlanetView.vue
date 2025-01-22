@@ -18,6 +18,7 @@ export default {
   },
   mounted() {
     this.setData()
+    this.checkRoute()
   },
   components: {
     FavoriteDrawer,
@@ -31,6 +32,9 @@ export default {
     computedImgSrc() {
       return `/img/objects/${this.data.name}.jpg`
     },
+  },
+  watch: {
+    '$route.params.page': 'checkRoute',
   },
   methods: {
     setData() {
@@ -56,6 +60,22 @@ export default {
 
       localStorage.setItem('favorite_planets', JSON.stringify(this.favorite_planets))
       this.$refs.fav_comp.updateFavorites()
+    },
+    checkRoute() {
+      const planetList = [
+        'Mercury',
+        'Venus',
+        'Earth',
+        'Mars',
+        'Jupiter',
+        'Saturn',
+        'Uranus',
+        'Neptune',
+      ]
+      console.log(this.$route.params.planet)
+      if (!planetList.includes(this.$route.params.planet)) {
+        this.$router.push('/unknown')
+      }
     },
   },
 }
