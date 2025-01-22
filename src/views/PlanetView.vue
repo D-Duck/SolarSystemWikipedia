@@ -72,7 +72,6 @@ export default {
         'Uranus',
         'Neptune',
       ]
-      console.log(this.$route.params.planet)
       if (!planetList.includes(this.$route.params.planet)) {
         this.$router.push('/unknown')
       }
