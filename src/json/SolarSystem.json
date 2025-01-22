@@ -1,0 +1,84 @@
+{
+  "planets": [
+    {
+      "name": "Mercury",
+      "order_from_sun": 1,
+      "diameter_km": 4879,
+      "orbital_period_days": 88,
+      "moons": 0,
+      "average_temperature_celsius": 167,
+      "atmosphere_composition": "None",
+      "discovery_year": "Prehistoric"
+    },
+    {
+      "name": "Venus",
+      "order_from_sun": 2,
+      "diameter_km": 12104,
+      "orbital_period_days": 225,
+      "moons": 0,
+      "average_temperature_celsius": 464,
+      "atmosphere_composition": "96% CO2, 3% N2",
+      "discovery_year": "Prehistoric"
+    },
+    {
+      "name": "Earth",
+      "order_from_sun": 3,
+      "diameter_km": 12742,
+      "orbital_period_days": 365.25,
+      "moons": 1,
+      "average_temperature_celsius": 15,
+      "atmosphere_composition": "78% N2, 21% O2",
+      "discovery_year": "Prehistoric"
+    },
+    {
+      "name": "Mars",
+      "order_from_sun": 4,
+      "diameter_km": 6779,
+      "orbital_period_days": 687,
+      "moons": 2,
+      "average_temperature_celsius": -63,
+      "atmosphere_composition": "95% CO2, 3% N2",
+      "discovery_year": "Prehistoric"
+    },
+    {
+      "name": "Jupiter",
+      "order_from_sun": 5,
+      "diameter_km": 139820,
+      "orbital_period_days": 4331,
+      "moons": 95,
+      "average_temperature_celsius": -108,
+      "atmosphere_composition": "90% H2, 10% He",
+      "discovery_year": "Prehistoric"
+    },
+    {
+      "name": "Saturn",
+      "order_from_sun": 6,
+      "diameter_km": 116460,
+      "orbital_period_days": 10759,
+      "moons": 146,
+      "average_temperature_celsius": -139,
+      "atmosphere_composition": "96% H2, 3% He",
+      "discovery_year": "Prehistoric"
+    },
+    {
+      "name": "Uranus",
+      "order_from_sun": 7,
+      "diameter_km": 50724,
+      "orbital_period_days": 30687,
+      "moons": 27,
+      "average_temperature_celsius": -195,
+      "atmosphere_composition": "83% H2, 15% He",
+      "discovery_year": 1781
+    },
+    {
+      "name": "Neptune",
+      "order_from_sun": 8,
+      "diameter_km": 49244,
+      "orbital_period_days": 60190,
+      "moons": 14,
+      "average_temperature_celsius": -201,
+      "atmosphere_composition": "80% H2, 19% He",
+      "discovery_year": 1846
+    }
+  ]
+}
