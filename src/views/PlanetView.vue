@@ -5,7 +5,6 @@ import LogoComp from '../components/LogoComp.vue'
 import GeneralPlanetInfo from '@/components/GeneralPlanetInfo.vue'
 import SectionComp from '@/components/SectionComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
-import RocketComp from '@/components/RocketComp.vue'
 
 export default {
   name: 'PlanetView',
@@ -19,7 +18,6 @@ export default {
     this.setData()
   },
   components: {
-    RocketComp,
     FooterComp,
     SectionComp,
     GeneralPlanetInfo,
